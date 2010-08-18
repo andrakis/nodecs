@@ -11,7 +11,7 @@ Advantages over standard C#:
 Advantages over Node.js:
 * Proper multithreading
 
-Note: I love Node.js. I love it so much, I couldn't bare to go back to
+Note: I love Node.js. I love it so much, I couldnt bare to go back to
 standard procedural C#.
 
 Currently implemented:
