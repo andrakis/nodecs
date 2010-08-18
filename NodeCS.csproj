@@ -46,8 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="lib\HashList.cs" />
+    <Compile Include="src\Async.cs" />
     <Compile Include="src\EventEmitter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\fs.cs" />
+    <Compile Include="src\fs_lib\readFile.cs" />
+    <Compile Include="src\Interval.cs" />
+    <Compile Include="src\Timeout.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="specback\SpecBack.csproj">
