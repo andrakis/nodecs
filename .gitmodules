@@ -1,3 +1,0 @@
-[submodule "refs/specback"]
-	path = refs/specback
-	url = git://github.com/DaedalusRaistlin/specback.git
