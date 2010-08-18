@@ -1,0 +1,3 @@
+[submodule "refs/specsharp"]
+	path = refs/specsharp
+	url = git@github.com:DaedalusRaistlin/specsharp.git
