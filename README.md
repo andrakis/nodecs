@@ -19,3 +19,4 @@ standard procedural C#.
 Currently implemented:
 ----------------------
 - EventEmitter
+- fs.readFile
