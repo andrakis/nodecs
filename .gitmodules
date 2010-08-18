@@ -1,3 +1,3 @@
-[submodule "refs/specsharp"]
-	path = refs/specsharp
-	url = git@github.com:DaedalusRaistlin/specsharp.git
+[submodule "refs/specback"]
+	path = refs/specback
+	url = git://github.com/DaedalusRaistlin/specback.git
