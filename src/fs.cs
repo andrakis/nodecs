@@ -10,8 +10,6 @@ namespace NodeCS
     /// </summary>
     public static class fs
     {
-        public delegate void readFileCallback(Exception err, byte[] data);
-
         /// <summary>
         /// Read a file asynchronously
         /// </summary>
