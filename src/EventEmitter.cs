@@ -12,7 +12,7 @@ namespace NodeCS
     public class EventEmitter : Spec
     {
         public delegate void Event (object[] p);
-        private HashList<List<Event>> events = new HashList<List<Event>>();
+        private Dictionary<string, List<Event>> events = new Dictionary<string, List<Event>>();
 
         /// <summary>
         /// Create a new instance of the event emitter.
@@ -69,13 +69,36 @@ namespace NodeCS
 
             if (true == this.events.ContainsKey(ev))
             {
-                foreach (Event handler in this.events[ev])
+                if (this.events[ev].Count > 0)
                 {
-                    this.performEmit(handler, p);
+                    foreach (Event handler in this.events[ev])
+                    {
+                        this.performEmit(handler, p);
+                    }
+                }
+                else
+                {
+                    // No listeners on event. Is it a special one?
+                    this.noListenersFound(ev, p);
                 }
             }
 
             return this;
+        }
+
+        /// <summary>
+        /// No listeners found for an event that was emitted.
+        /// If it's special, do something special.
+        /// </summary>
+        /// <param name="ev"></param>
+        /// <param name="data"></param>
+        protected virtual void noListenersFound(string ev, object[] data)
+        {
+            switch (ev)
+            {
+                case "error":
+                    throw new Exception(data.ToString());
+            }
         }
 
         /// <summary>

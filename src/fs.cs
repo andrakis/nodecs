@@ -10,6 +10,8 @@ namespace NodeCS
     /// </summary>
     public static class fs
     {
+        public delegate void readFileCallback(Exception err, byte[] data);
+
         /// <summary>
         /// Read a file asynchronously
         /// </summary>
@@ -18,7 +20,18 @@ namespace NodeCS
         /// <param name="callback">Callback that takes Exception, byte[]</param>
         public static void readFile(string filename, string encoding, readFileCallback callback)
         {
-            new fs_lib.readFile(filename, encoding, callback).run();
+            Async.run(delegate()
+            {
+                try
+                {
+                    byte[] contents = System.IO.File.ReadAllBytes(filename);
+                    callback(null, contents);
+                }
+                catch (Exception ex)
+                {
+                    callback(ex, null);
+                }
+            });
         }
         public static void readFile(string filename, readFileCallback callback) {
             readFile(filename, "ascii", callback);

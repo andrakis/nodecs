@@ -27,7 +27,7 @@ namespace NodeCS
 
         protected virtual void schedule()
         {
-            thread = new Thread(delegate()
+            Async.run(delegate()
             {
                 Thread.Sleep(this.delay);
                 if (false == this.cancelled)
@@ -35,7 +35,6 @@ namespace NodeCS
                     callback();
                 }
             });
-            thread.Start();
         }
 
         public virtual void cancel()

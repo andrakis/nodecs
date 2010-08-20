@@ -5,19 +5,23 @@ using System.Text;
 
 namespace NodeCS
 {
-    public abstract class Async
+    /// <summary>
+    /// A standard callback.
+    /// </summary>
+    public delegate void Callback();
+
+    /// <summary>
+    /// Call a function asynchronously.
+    /// </summary>
+    public static class Async
     {
-        protected delegate void AsyncCallback();
-        private readonly System.Threading.Thread thread;
-
-        protected Async(AsyncCallback callback)
+        /// <summary>
+        /// Run the specified callback in a separate thread.
+        /// </summary>
+        /// <param name="callback"></param>
+        public static void run(Callback callback)
         {
-            this.thread = new System.Threading.Thread(() => callback());
-        }
-
-        public void run()
-        {
-            this.thread.Start();
+            new System.Threading.Thread(() => callback()).Start();
         }
     }
 }
